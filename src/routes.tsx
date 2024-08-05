@@ -4,10 +4,10 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
-import SignUp from './pages/Authentication/SignIn';
 import ECommerce from './pages/Dashboard/ECommerce';
 import DefaultLayout from './layout/DefaultLayout';
 import RequireAuth from './common/auth';
+import RedirectIfAuthenticated from './hoc/RedirectIfAuthenticated';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -40,18 +40,9 @@ function App() {
       <Route
         path="/login"
         element={
-          <>
+          <RedirectIfAuthenticated>
             <SignIn />
-          </>
-        }
-      />
-      <Route
-        path="/signup"
-        element={
-          <>
-            <PageTitle title="Signup" />
-            <SignUp />
-          </>
+          </RedirectIfAuthenticated>
         }
       />
     </Routes>

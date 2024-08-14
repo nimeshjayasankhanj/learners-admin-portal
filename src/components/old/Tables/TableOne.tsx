@@ -1,9 +1,9 @@
-import { BRAND } from '../../types/brand';
-import BrandOne from '../../images/brand/brand-01.svg';
-import BrandTwo from '../../images/brand/brand-02.svg';
-import BrandThree from '../../images/brand/brand-03.svg';
-import BrandFour from '../../images/brand/brand-04.svg';
-import BrandFive from '../../images/brand/brand-05.svg';
+import { BRAND } from '../../../types/brand';
+import BrandOne from '../../../images/brand/brand-01.svg';
+import BrandTwo from '../../../images/brand/brand-02.svg';
+import BrandThree from '../../../images/brand/brand-03.svg';
+import BrandFour from '../../../images/brand/brand-04.svg';
+import BrandFive from '../../../images/brand/brand-05.svg';
 
 const brandData: BRAND[] = [
   {
@@ -86,11 +86,10 @@ const TableOne = () => {
 
         {brandData.map((brand, key) => (
           <div
-            className={`grid grid-cols-3 sm:grid-cols-5 ${
-              key === brandData.length - 1
-                ? ''
-                : 'border-b border-stroke dark:border-strokedark'
-            }`}
+            className={`grid grid-cols-3 sm:grid-cols-5 ${key === brandData.length - 1
+              ? ''
+              : 'border-b border-stroke dark:border-strokedark'
+              }`}
             key={key}
           >
             <div className="flex items-center gap-3 p-2.5 xl:p-5">

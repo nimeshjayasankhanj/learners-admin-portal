@@ -5,9 +5,10 @@ import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import ECommerce from './pages/Dashboard/ECommerce';
-import DefaultLayout from './layout/DefaultLayout';
+import DefaultLayout from './components/layout/DefaultLayout';
 import RequireAuth from './common/auth';
 import RedirectIfAuthenticated from './hoc/RedirectIfAuthenticated';
+import Lists from './pages/user/Lists';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -32,6 +33,42 @@ function App() {
             <DefaultLayout>
               <PageTitle title="eCommerce Dashboard" />
               <ECommerce />
+            </DefaultLayout>
+          }
+        >
+        </Route>
+      </Route>
+      <Route element={<RequireAuth />} >
+        <Route
+          path="/user"
+          element={
+            <DefaultLayout>
+              <PageTitle title="User" />
+              <Lists />
+            </DefaultLayout>
+          }
+        >
+        </Route>
+      </Route>
+      <Route element={<RequireAuth />} >
+        <Route
+          path="/packages"
+          element={
+            <DefaultLayout>
+              <PageTitle title="Packages" />
+              <Lists />
+            </DefaultLayout>
+          }
+        >
+        </Route>
+      </Route>
+      <Route element={<RequireAuth />} >
+        <Route
+          path="/notifications"
+          element={
+            <DefaultLayout>
+              <PageTitle title="Notifications" />
+              <Lists />
             </DefaultLayout>
           }
         >
